@@ -4,7 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>sys.ax — Applied AI</title>
-<meta name="description" content="sys.ax architects and deploys bespoke AI systems engineered to the distinct requirements of each engagement.">
+<meta name="description" content="sys.ax architects and deploys bespoke AI systems for logistics, manufacturing, and operations — from strategy through production deployment.">
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+
+<!-- OG / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="sys.ax — Applied AI">
+<meta property="og:description" content="We architect and deploy bespoke AI systems engineered to the specifics of your operation — from strategy through production.">
+<meta property="og:url" content="https://sys.ax">
+<meta property="og:image" content="https://sys.ax/static/logo-square.svg">
+<meta property="og:site_name" content="sys.ax">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sys.ax — Applied AI">
+<meta name="twitter:description" content="We architect and deploy bespoke AI systems engineered to the specifics of your operation.">
+<meta name="twitter:image" content="https://sys.ax/static/logo-square.svg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -206,6 +222,45 @@ section{
   line-height:1.7;
 }
 
+/* ── PROCESS ── */
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--space-md);
+  margin-top:var(--space-lg);
+  counter-reset:step;
+}
+.process-step{
+  position:relative;
+  padding-top:48px;
+}
+.process-step::before{
+  content:counter(step);
+  counter-increment:step;
+  position:absolute;
+  top:0;left:0;
+  font-family:var(--serif);
+  font-size:2rem;
+  font-weight:300;
+  color:var(--accent);
+  opacity:.5;
+}
+.process-step h3{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.9rem;
+  margin-bottom:var(--space-xs);
+  letter-spacing:-.01em;
+}
+.process-step p{
+  font-size:.84rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+.process-connector{
+  display:none; /* hidden on mobile, shown via pseudo-elements on desktop */
+}
+
 /* ── APPROACH ── */
 .approach-grid{
   display:grid;
@@ -237,6 +292,40 @@ section{
   font-size:.84rem;
   color:var(--text-muted);
   line-height:1.7;
+}
+
+/* ── TESTIMONIAL ── */
+.testimonial-section{
+  padding:var(--space-xl) var(--space-md);
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+.testimonial-inner{
+  max-width:720px;
+}
+.testimonial-quote{
+  font-family:var(--serif);
+  font-weight:300;
+  font-style:italic;
+  font-size:clamp(1.15rem,2.2vw,1.5rem);
+  line-height:1.6;
+  color:var(--text);
+  position:relative;
+  padding-left:var(--space-md);
+  border-left:2px solid rgba(114,151,197,.3);
+}
+.testimonial-attr{
+  margin-top:var(--space-md);
+  padding-left:var(--space-md);
+  font-size:.84rem;
+  color:var(--text-muted);
+  line-height:1.6;
+}
+.testimonial-attr strong{
+  display:block;
+  color:var(--text);
+  font-weight:500;
+  font-size:.88rem;
 }
 
 /* ── CONTACT ── */
@@ -275,7 +364,11 @@ footer{
   .nav-links{display:none}
   .approach-grid{grid-template-columns:1fr;gap:var(--space-md)}
   .cap-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:var(--space-md) var(--space-lg)}
   .hero{padding-top:100px}
+}
+@media(max-width:480px){
+  .process-steps{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -285,6 +378,7 @@ footer{
   <div class="nav-logo">sys<span>.</span>ax</div>
   <div class="nav-links">
     <a href="#capabilities">Capabilities</a>
+    <a href="#process">How we work</a>
     <a href="#approach">Approach</a>
     <a href="#contact">Contact</a>
   </div>
@@ -293,10 +387,11 @@ footer{
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-eyebrow">Applied Artificial Intelligence</div>
-  <h1>We architect AI systems <em>engineered</em> to the specifics of your operation</h1>
+  <h1>We turn manual operations into <em>intelligent</em> systems</h1>
   <p class="hero-sub">
-    sys.ax designs and deploys bespoke AI infrastructure — purpose-built solutions
-    that integrate at the core of your business, not at its periphery.
+    sys.ax partners with logistics, manufacturing, and operations-heavy enterprises
+    to design and deploy AI that eliminates manual processes — end to end, from
+    strategy through production — with security built in from day one.
   </p>
   <div class="hero-cta">
     <a href="#contact" class="btn btn-primary">Start a conversation</a>
@@ -313,23 +408,54 @@ footer{
   <div class="cap-grid">
     <div class="cap-card">
       <div class="cap-num">01</div>
-      <h3>Custom Model Development</h3>
-      <p>Fine-tuned and purpose-built models trained on your proprietary data, optimized for your specific domain and performance requirements.</p>
+      <h3>Process Intelligence</h3>
+      <p>We map your operational workflows, identify where manual effort compounds cost, and design AI systems that replace repetition with automation — at the process level, not the tool level.</p>
     </div>
     <div class="cap-card">
       <div class="cap-num">02</div>
-      <h3>Intelligent Process Automation</h3>
-      <p>Autonomous AI agents and workflows that replace manual processes with systems that learn, adapt, and scale with your operations.</p>
+      <h3>Custom Model Development</h3>
+      <p>Purpose-built models trained on your proprietary data — demand forecasting, route optimization, quality inspection, document processing — tuned to your domain and constraints.</p>
     </div>
     <div class="cap-card">
       <div class="cap-num">03</div>
-      <h3>Infrastructure &amp; MLOps</h3>
-      <p>Production-grade AI infrastructure — model serving, monitoring, and continuous retraining pipelines engineered for reliability at scale.</p>
+      <h3>Autonomous Workflows</h3>
+      <p>AI agents that handle end-to-end operational tasks — from intake through execution — replacing manual handoffs with systems that learn, adapt, and scale with your volume.</p>
     </div>
     <div class="cap-card">
       <div class="cap-num">04</div>
-      <h3>AI Strategy &amp; Architecture</h3>
-      <p>Technical due diligence, systems design, and implementation roadmaps grounded in what is achievable today — not what is theoretical.</p>
+      <h3>Infrastructure &amp; MLOps</h3>
+      <p>Production-grade deployment, monitoring, and continuous retraining pipelines. We build systems that run reliably in your environment — not demos that break on day two.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">05</div>
+      <h3>AI Security &amp; Hardening</h3>
+      <p>Adversarial testing, prompt injection defense, model access controls, and data governance — ensuring your AI systems are secure by design, not as an afterthought.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── HOW WE WORK ── -->
+<section id="process">
+  <div class="section-label">How we work</div>
+  <h2 class="section-heading">Strategy and execution under one roof</h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <h3>Diagnose</h3>
+      <p>We embed in your operations to understand the workflows, data, and constraints firsthand. No questionnaires — we see it ourselves.</p>
+    </div>
+    <div class="process-step">
+      <h3>Architect</h3>
+      <p>We design the target system end to end — data pipelines, model architecture, integration points, and rollout plan — scoped to deliver measurable outcomes.</p>
+    </div>
+    <div class="process-step">
+      <h3>Build</h3>
+      <p>We develop, test, and iterate using the latest techniques available. What the research community published this month, we deploy this quarter.</p>
+    </div>
+    <div class="process-step">
+      <h3>Operate</h3>
+      <p>We deploy to production and stay on. Monitoring, retraining, and continuous improvement — until the system runs as a native part of your operation.</p>
     </div>
   </div>
 </section>
@@ -343,29 +469,45 @@ footer{
   <div class="approach-grid">
     <div class="approach-text">
       <p>
-        Every engagement begins with a deep understanding of the operational context — the data,
-        the constraints, the outcomes that matter. We do not offer pre-packaged platforms or
-        generic integrations.
+        Most enterprises we work with have no AI in place — and often, no formalized process to automate.
+        We start from the operation itself, not from a technology stack.
       </p>
       <p>
-        We build systems that are native to your environment, leveraging the latest advances in
-        AI research and deploying them with the rigor of production engineering.
+        We combine the strategic rigor of a management consultancy with the technical depth
+        of a frontier AI lab. We don't hand off a slide deck — we build the system and put it in production.
       </p>
     </div>
     <ul class="approach-principles">
       <li>
-        <strong>Bespoke by design</strong>
-        <span>Each solution is architected from first principles for the specific problem at hand.</span>
+        <strong>Outcomes, not tools</strong>
+        <span>We scope every engagement around a measurable operational result — cost reduced, throughput increased, error rate eliminated.</span>
       </li>
       <li>
         <strong>Research-current</strong>
         <span>We operate at the frontier — deploying techniques weeks, not years, after they emerge.</span>
       </li>
       <li>
-        <strong>Production-first</strong>
-        <span>Every system we build is designed for real-world reliability, not demonstration.</span>
+        <strong>Built for your reality</strong>
+        <span>Each system is engineered for your specific data, constraints, and operating environment. No templates.</span>
       </li>
     </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── TESTIMONIAL ── -->
+<section class="testimonial-section">
+  <div class="testimonial-inner">
+    <blockquote class="testimonial-quote">
+      We had tried two vendors before and ended up with dashboards nobody used.
+      sys.ax came in, understood our actual operation, and built a system that now
+      runs autonomously. It was the first time an AI project delivered what was promised.
+    </blockquote>
+    <div class="testimonial-attr">
+      <strong>Head of Operations</strong>
+      Regional logistics company, Latin America
+    </div>
   </div>
 </section>
 
@@ -374,7 +516,7 @@ footer{
 <!-- ── CONTACT ── -->
 <section id="contact" class="contact-section">
   <div class="section-label">Contact</div>
-  <h2 class="section-heading">Let's discuss what AI can do for your organization</h2>
+  <h2 class="section-heading">Let's discuss what AI can do for your operation</h2>
   <a href="mailto:hello@sys.ax" class="contact-email">hello@sys.ax</a>
 </section>
 

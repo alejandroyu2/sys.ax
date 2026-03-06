@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#08080c"/>
+  <text x="256" y="312" text-anchor="middle" font-family="'IBM Plex Serif', Georgia, serif" font-weight="300" font-size="248" fill="#e8e6f0">s</text>
+  <circle cx="384" cy="296" r="20" fill="#7297c5"/>
+</svg>
