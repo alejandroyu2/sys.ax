@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sys.ax — Applied AI</title>
+<meta name="description" content="sys.ax architects and deploys bespoke AI systems engineered to the distinct requirements of each engagement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080c;
+  --bg-elevated:#0f0f16;
+  --bg-card:#13131c;
+  --text:#e8e6f0;
+  --text-muted:#8a879a;
+  --accent:#7297c5;
+  --accent-dim:rgba(114,151,197,.12);
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+  --max-w:1120px;
+  --space-xs:8px;
+  --space-sm:16px;
+  --space-md:32px;
+  --space-lg:64px;
+  --space-xl:120px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:var(--accent);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.75}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--space-md);
+  height:56px;
+  background:rgba(8,8,12,.82);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.nav-logo{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:1.05rem;
+  letter-spacing:-.02em;
+  color:var(--text);
+}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:var(--space-md);font-size:.85rem;color:var(--text-muted);font-weight:400}
+.nav-links a{color:var(--text-muted)}
+.nav-links a:hover{color:var(--text);opacity:1}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:var(--space-xl) var(--space-md) var(--space-lg);
+  max-width:var(--max-w);
+  margin:0 auto;
+  position:relative;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:15%;right:-10%;
+  width:520px;height:520px;
+  background:radial-gradient(circle,rgba(114,151,197,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:.78rem;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:var(--space-md);
+}
+.hero h1{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(2.4rem,5.2vw,4.2rem);
+  line-height:1.15;
+  letter-spacing:-.025em;
+  color:var(--text);
+  max-width:780px;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--accent);
+}
+.hero-sub{
+  margin-top:var(--space-md);
+  font-size:1.05rem;
+  line-height:1.75;
+  color:var(--text-muted);
+  max-width:540px;
+}
+.hero-cta{
+  margin-top:var(--space-lg);
+  display:flex;
+  gap:var(--space-sm);
+  align-items:center;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;align-items:center;
+  padding:12px 28px;
+  border-radius:6px;
+  font-size:.88rem;
+  font-weight:500;
+  letter-spacing:.01em;
+  transition:all .25s ease;
+  cursor:pointer;
+  border:none;
+}
+.btn-primary{
+  background:var(--accent);
+  color:var(--bg);
+}
+.btn-primary:hover{background:#85a8d4;opacity:1}
+.btn-ghost{
+  background:transparent;
+  color:var(--text-muted);
+  border:1px solid rgba(255,255,255,.08);
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.2);color:var(--text);opacity:1}
+
+/* ── SECTION ── */
+section{
+  padding:var(--space-xl) var(--space-md);
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+.section-label{
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:var(--space-sm);
+}
+.section-heading{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  line-height:1.25;
+  letter-spacing:-.02em;
+  max-width:600px;
+}
+
+/* ── DIVIDER ── */
+.divider{
+  max-width:var(--max-w);
+  margin:0 auto;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.06) 50%,transparent);
+}
+
+/* ── CAPABILITIES ── */
+.cap-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1px;
+  margin-top:var(--space-lg);
+  background:rgba(255,255,255,.03);
+  border-radius:12px;
+  overflow:hidden;
+}
+.cap-card{
+  background:var(--bg-elevated);
+  padding:var(--space-md) var(--space-md) 40px;
+  position:relative;
+  transition:background .3s;
+}
+.cap-card:hover{background:var(--bg-card)}
+.cap-num{
+  font-family:var(--serif);
+  font-size:.85rem;
+  color:var(--accent);
+  margin-bottom:var(--space-sm);
+  font-weight:400;
+}
+.cap-card h3{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.95rem;
+  margin-bottom:var(--space-xs);
+  letter-spacing:-.01em;
+}
+.cap-card p{
+  font-size:.85rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+
+/* ── APPROACH ── */
+.approach-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-lg);
+  margin-top:var(--space-lg);
+  align-items:start;
+}
+.approach-text{
+  font-size:.95rem;
+  line-height:1.8;
+  color:var(--text-muted);
+}
+.approach-text p+p{margin-top:var(--space-sm)}
+.approach-principles{list-style:none;display:flex;flex-direction:column;gap:var(--space-md)}
+.approach-principles li{
+  padding-left:var(--space-md);
+  border-left:1px solid rgba(114,151,197,.25);
+}
+.approach-principles li strong{
+  display:block;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.88rem;
+  margin-bottom:4px;
+  color:var(--text);
+}
+.approach-principles li span{
+  font-size:.84rem;
+  color:var(--text-muted);
+  line-height:1.7;
+}
+
+/* ── CONTACT ── */
+.contact-section{
+  text-align:center;
+  padding:var(--space-xl) var(--space-md) var(--space-xl);
+}
+.contact-section .section-label,
+.contact-section .section-heading{
+  margin-left:auto;margin-right:auto;
+}
+.contact-section .section-heading{max-width:480px}
+.contact-email{
+  display:inline-block;
+  margin-top:var(--space-md);
+  font-family:var(--serif);
+  font-size:1.25rem;
+  color:var(--accent);
+  border-bottom:1px solid rgba(114,151,197,.3);
+  padding-bottom:2px;
+  transition:border-color .2s;
+}
+.contact-email:hover{border-color:var(--accent);opacity:1}
+
+/* ── FOOTER ── */
+footer{
+  padding:var(--space-md);
+  text-align:center;
+  font-size:.75rem;
+  color:rgba(255,255,255,.2);
+  border-top:1px solid rgba(255,255,255,.04);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .approach-grid{grid-template-columns:1fr;gap:var(--space-md)}
+  .cap-grid{grid-template-columns:1fr}
+  .hero{padding-top:100px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">sys<span>.</span>ax</div>
+  <div class="nav-links">
+    <a href="#capabilities">Capabilities</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-eyebrow">Applied Artificial Intelligence</div>
+  <h1>We architect AI systems <em>engineered</em> to the specifics of your operation</h1>
+  <p class="hero-sub">
+    sys.ax designs and deploys bespoke AI infrastructure — purpose-built solutions
+    that integrate at the core of your business, not at its periphery.
+  </p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn btn-primary">Start a conversation</a>
+    <a href="#capabilities" class="btn btn-ghost">Explore capabilities</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CAPABILITIES ── -->
+<section id="capabilities">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-heading">End-to-end delivery, from strategy through production deployment</h2>
+  <div class="cap-grid">
+    <div class="cap-card">
+      <div class="cap-num">01</div>
+      <h3>Custom Model Development</h3>
+      <p>Fine-tuned and purpose-built models trained on your proprietary data, optimized for your specific domain and performance requirements.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">02</div>
+      <h3>Intelligent Process Automation</h3>
+      <p>Autonomous AI agents and workflows that replace manual processes with systems that learn, adapt, and scale with your operations.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">03</div>
+      <h3>Infrastructure &amp; MLOps</h3>
+      <p>Production-grade AI infrastructure — model serving, monitoring, and continuous retraining pipelines engineered for reliability at scale.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">04</div>
+      <h3>AI Strategy &amp; Architecture</h3>
+      <p>Technical due diligence, systems design, and implementation roadmaps grounded in what is achievable today — not what is theoretical.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── APPROACH ── -->
+<section id="approach">
+  <div class="section-label">Approach</div>
+  <h2 class="section-heading">Precision over convention</h2>
+  <div class="approach-grid">
+    <div class="approach-text">
+      <p>
+        Every engagement begins with a deep understanding of the operational context — the data,
+        the constraints, the outcomes that matter. We do not offer pre-packaged platforms or
+        generic integrations.
+      </p>
+      <p>
+        We build systems that are native to your environment, leveraging the latest advances in
+        AI research and deploying them with the rigor of production engineering.
+      </p>
+    </div>
+    <ul class="approach-principles">
+      <li>
+        <strong>Bespoke by design</strong>
+        <span>Each solution is architected from first principles for the specific problem at hand.</span>
+      </li>
+      <li>
+        <strong>Research-current</strong>
+        <span>We operate at the frontier — deploying techniques weeks, not years, after they emerge.</span>
+      </li>
+      <li>
+        <strong>Production-first</strong>
+        <span>Every system we build is designed for real-world reliability, not demonstration.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="contact-section">
+  <div class="section-label">Contact</div>
+  <h2 class="section-heading">Let's discuss what AI can do for your organization</h2>
+  <a href="mailto:hello@sys.ax" class="contact-email">hello@sys.ax</a>
+</section>
+
+<footer>
+  &copy; 2025 sys.ax
+</footer>
+
+</body>
+</html>
