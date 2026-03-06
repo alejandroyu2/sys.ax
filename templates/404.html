@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sys.ax — Page not found</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080c;
+  --bg-elevated:#0f0f16;
+  --text:#e8e6f0;
+  --text-muted:#8a879a;
+  --accent:#7297c5;
+  --serif:'IBM Plex Serif',Georgia,serif;
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+}
+html{font-size:16px}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+a{color:var(--accent);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.75}
+nav{
+  display:flex;align-items:center;
+  padding:0 32px;height:56px;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.nav-logo{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:1.05rem;
+  letter-spacing:-.02em;
+  color:var(--text);
+}
+.nav-logo span{color:var(--accent)}
+.error-page{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:64px 32px;
+}
+.error-code{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(5rem,12vw,9rem);
+  color:var(--accent);
+  opacity:.25;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.error-page h1{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:1.6rem;
+  margin-top:16px;
+  letter-spacing:-.02em;
+}
+.error-page p{
+  color:var(--text-muted);
+  font-size:.9rem;
+  margin-top:12px;
+  max-width:360px;
+}
+.error-page .btn{
+  display:inline-flex;align-items:center;
+  margin-top:40px;
+  padding:12px 28px;
+  border-radius:6px;
+  font-size:.88rem;
+  font-weight:500;
+  background:transparent;
+  color:var(--text-muted);
+  border:1px solid rgba(255,255,255,.08);
+  transition:all .25s ease;
+}
+.error-page .btn:hover{border-color:rgba(255,255,255,.2);color:var(--text);opacity:1}
+footer{
+  padding:32px;
+  text-align:center;
+  font-size:.75rem;
+  color:rgba(255,255,255,.2);
+  border-top:1px solid rgba(255,255,255,.04);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">sys<span>.</span>ax</a>
+</nav>
+
+<main class="error-page">
+  <div class="error-code">404</div>
+  <h1>Page not found</h1>
+  <p>The page you're looking for doesn't exist or has been moved.</p>
+  <a href="/" class="btn">Back to home</a>
+</main>
+
+<footer>
+  &copy; 2026 sys.ax
+</footer>
+
+</body>
+</html>
