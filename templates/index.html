@@ -497,6 +497,41 @@ section{
   border-radius:100px;
 }
 
+/* ── NOT FOR EVERYONE ── */
+.not-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-lg);
+  margin-top:var(--space-lg);
+  align-items:start;
+}
+.not-list{list-style:none;display:flex;flex-direction:column;gap:var(--space-sm)}
+.not-list li{
+  font-size:.88rem;
+  color:var(--text-muted);
+  line-height:1.7;
+  padding-left:var(--space-sm);
+  position:relative;
+}
+.not-list li::before{
+  content:'—';
+  position:absolute;
+  left:0;
+  color:var(--accent);
+  opacity:.5;
+}
+.not-heading{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.9rem;
+  color:var(--text);
+  margin-bottom:var(--space-sm);
+  letter-spacing:-.01em;
+}
+@media(max-width:768px){
+  .not-grid{grid-template-columns:1fr;gap:var(--space-md)}
+}
+
 /* ── WHO WE ARE ── */
 .who-text{
   max-width:640px;
@@ -551,7 +586,7 @@ footer{
   <p class="hero-sub">
     sys.ax designs and deploys bespoke AI infrastructure — purpose-built solutions
     that integrate at the core of your business, not at its periphery. End to end,
-    from strategy through production, with security built in from day one.
+    from strategy through production, with enterprise-grade security built in from day one.
   </p>
   <div class="hero-cta">
     <a href="#contact" class="btn btn-primary">Start a conversation</a>
@@ -586,7 +621,7 @@ footer{
 <!-- ── CAPABILITIES ── -->
 <section id="capabilities">
   <div class="section-label">Capabilities</div>
-  <h2 class="section-heading">End-to-end delivery, from strategy through production deployment</h2>
+  <h2 class="section-heading">Most engagements are in production within three weeks</h2>
   <div class="cap-grid">
     <div class="cap-card">
       <div class="cap-num">01</div>
@@ -611,7 +646,7 @@ footer{
     <div class="cap-card">
       <div class="cap-num">05</div>
       <h3>AI Security &amp; Hardening</h3>
-      <p>Adversarial testing, prompt injection defense, model access controls, and data governance — ensuring your AI systems are secure by design, not as an afterthought.</p>
+      <p>Security architecture aligned with FedRAMP, NIST 800-53, and Zero Trust principles. Adversarial testing, prompt injection defense, model access controls, audit logging, and data governance — built to the standards required by regulated and government environments.</p>
     </div>
   </div>
 </section>
@@ -631,6 +666,18 @@ footer{
     <span class="tech-item">vLLM</span>
     <span class="tech-item">Temporal</span>
     <span class="tech-item">W&amp;B</span>
+  </div>
+</div>
+
+<div class="tech-strip-outer">
+  <div class="tech-strip">
+    <span class="tech-item">FedRAMP</span>
+    <span class="tech-item">NIST 800-53</span>
+    <span class="tech-item">SOC 2 Type II</span>
+    <span class="tech-item">ISO 27001</span>
+    <span class="tech-item">CMMC</span>
+    <span class="tech-item">FIPS 140-2</span>
+    <span class="tech-item">Zero Trust</span>
   </div>
 </div>
 
@@ -716,7 +763,41 @@ footer{
         <strong>Built for your reality</strong>
         <span>Each system is engineered for your specific data, constraints, and operating environment. No templates.</span>
       </li>
+      <li>
+        <strong>Enterprise-grade by default</strong>
+        <span>Every system is architected to meet the compliance and security standards of the most regulated industries — whether or not they're required.</span>
+      </li>
     </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── NOT FOR EVERYONE ── -->
+<section id="not-for-everyone">
+  <div class="section-label">Honest fit</div>
+  <h2 class="section-heading">We're not for everyone</h2>
+  <div class="not-grid">
+    <div>
+      <div class="not-heading">What we don't do</div>
+      <ul class="not-list">
+        <li>Generic chatbot wrappers or off-the-shelf AI integrations</li>
+        <li>Six-month discovery phases that end in a slide deck</li>
+        <li>Proof of concepts that never reach production</li>
+        <li>Staff augmentation or body-shop consulting</li>
+        <li>Dashboards nobody opens after week two</li>
+      </ul>
+    </div>
+    <div>
+      <div class="not-heading">We're the right fit if</div>
+      <ul class="not-list">
+        <li>You have a real operational problem, not a technology wish list</li>
+        <li>You need a system in production, not a report about one</li>
+        <li>You value speed and precision over process and ceremony</li>
+        <li>You want senior engineers doing the work, not managing it</li>
+        <li>You've been burned by AI projects that delivered nothing</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -748,7 +829,7 @@ footer{
     </blockquote>
     <div class="testimonial-attr">
       <strong>Head of Operations</strong>
-      Enterprise client, Latin America
+      Leading 3PL, Latin America
     </div>
   </div>
   <div class="testimonial-inner" style="margin-top:var(--space-xl)">
@@ -759,7 +840,7 @@ footer{
     </blockquote>
     <div class="testimonial-attr">
       <strong>Director of Digital Transformation</strong>
-      Enterprise client, Europe
+      Leading manufacturer, Europe
     </div>
   </div>
 </section>
