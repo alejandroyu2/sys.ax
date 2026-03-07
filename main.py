@@ -31,7 +31,6 @@ async def security_headers(request: Request, call_next):
     response.headers["X-DNS-Prefetch-Control"] = "off"
     response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
     response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
-    response.headers["Cross-Origin-Embedder-Policy"] = "require-corp"
     response.headers["Content-Security-Policy"] = (
         "default-src 'none'; "
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
