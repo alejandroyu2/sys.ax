@@ -1,0 +1,8 @@
+.git
+.github
+.gitignore
+.claude
+.dockerignore
+generate_wallpaper.py
+static/wallpaper-retina.png
+*.md

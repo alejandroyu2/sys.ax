@@ -10,7 +10,10 @@ RUN adduser --disabled-password --no-create-home app \
 COPY --from=builder /install /usr/local
 WORKDIR /app
 COPY --chown=app:app . .
-RUN pip uninstall -y pip setuptools 2>/dev/null; rm -rf /usr/local/bin/pip*
+RUN pip uninstall -y pip setuptools 2>/dev/null; rm -rf /usr/local/bin/pip* \
+    && chmod -R a-w /app /usr/local \
+    && rm -f /bin/sh /usr/bin/sh /bin/bash /usr/bin/bash 2>/dev/null || true
 USER app
-ENV PORT=8080
-CMD ["sh", "-c", "python -m uvicorn main:app --host 0.0.0.0 --port ${PORT} --timeout-keep-alive 5 --limit-concurrency 100 --server-header --no-server-header"]
+HEALTHCHECK --interval=30s --timeout=3s --retries=2 \
+  CMD ["python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/')"]
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080", "--timeout-keep-alive", "5", "--limit-concurrency", "100", "--no-server-header"]

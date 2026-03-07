@@ -10,7 +10,7 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
 limiter = Limiter(key_func=get_remote_address)
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 app.state.limiter = limiter
 
 # GZip compression
@@ -28,6 +28,10 @@ async def security_headers(request: Request, call_next):
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response.headers["Permissions-Policy"] = "camera=(), microphone=(), geolocation=()"
     response.headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains; preload"
+    response.headers["X-DNS-Prefetch-Control"] = "off"
+    response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+    response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
+    response.headers["Cross-Origin-Embedder-Policy"] = "require-corp"
     response.headers["Content-Security-Policy"] = (
         "default-src 'none'; "
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
@@ -41,6 +45,8 @@ async def security_headers(request: Request, call_next):
     )
     if "server" in response.headers:
         del response.headers["server"]
+    if response.headers.get("content-type", "").startswith("text/html"):
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate"
     return response
 
 
